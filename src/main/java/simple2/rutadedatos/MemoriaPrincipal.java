@@ -56,7 +56,7 @@ public class MemoriaPrincipal {
 		this.memoria = new short[this.TAMANO];
 		this.mask = 0xFFFF >> (16 - this.BITSDIRECCION);
 
-		for (int i = 0; (i < this.memoria.length) && (i < codigoInicial.length); i++) {
+		for (int i = 0; i < this.memoria.length && i < codigoInicial.length; i++) {
 			this.memoria[i] = codigoInicial[i];
 		}
 	}
