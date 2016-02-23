@@ -41,7 +41,7 @@ public class MemoriaPrincipal {
 	 */
 	public MemoriaPrincipal() {
 		this.memoria = new short[this.TAMANO];
-		this.mask = (0xFFFF >> (16 - this.BITSDIRECCION));
+		this.mask = 0xFFFF >> (16 - this.BITSDIRECCION);
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class MemoriaPrincipal {
 	 */
 	public MemoriaPrincipal(short[] codigoInicial) {
 		this.memoria = new short[this.TAMANO];
-		this.mask = (0xFFFF >> (16 - this.BITSDIRECCION));
+		this.mask = 0xFFFF >> (16 - this.BITSDIRECCION);
 
 		for (int i = 0; (i < this.memoria.length) && (i < codigoInicial.length); i++) {
 			this.memoria[i] = codigoInicial[i];
@@ -70,7 +70,7 @@ public class MemoriaPrincipal {
 	 *            El dato a escribir
 	 */
 	public void escribirDato(short direccion, short dato) {
-		int dir = (direccion & this.mask);
+		int dir = direccion & this.mask;
 		this.memoria[dir] = dato;
 
 		notificarListeners(dir, dato);
@@ -84,7 +84,7 @@ public class MemoriaPrincipal {
 	 * @return El dato solicitado
 	 */
 	public short leerDato(short direccion) {
-		int dir = (direccion & this.mask);
+		int dir = direccion & this.mask;
 		return this.memoria[dir];
 	}
 

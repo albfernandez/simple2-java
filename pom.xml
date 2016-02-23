@@ -49,8 +49,11 @@
 				<artifactId>maven-pmd-plugin</artifactId>
 				<version>3.6</version>
 				<configuration>
-					<verbose>true</verbose>
+							<failOnViolation>true</failOnViolation>
+							<verbose>true</verbose>
+							<failurePriority>0</failurePriority>
 				</configuration>
+				
 				<executions>
 					<execution>
 						<goals>

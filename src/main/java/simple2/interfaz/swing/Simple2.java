@@ -302,6 +302,7 @@ public class Simple2 {
 					try {
 						Simple2.this.tiempo = Integer.parseInt(cad);
 					} catch (Exception ex) {
+						Simple2.this.tiempo = 1000;
 					}
 				}
 			}

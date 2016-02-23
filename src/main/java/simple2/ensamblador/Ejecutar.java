@@ -49,6 +49,7 @@ public class Ejecutar extends InstruccionGeneral {
 		try {
 			codigo_limpio = primeraPasada(v);
 		} catch (ErrorCodigoException ex) {
+			//
 		}
 		return codigo_limpio;
 	}

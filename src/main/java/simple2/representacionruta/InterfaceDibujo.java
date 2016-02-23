@@ -16,13 +16,13 @@ public interface InterfaceDibujo {
 	 * Vuelca el contenido del dibujo en la pantalla.
 	 *
 	 */
-	public void refresh();
+	void refresh();
 
 	/**
 	 * Limpia el contenido del dibujo (no lo vuelca en pantalla).
 	 *
 	 */
-	public void clean();
+	void clean();
 
 	/**
 	 * Limpia un área rectangular determinada
@@ -32,7 +32,7 @@ public interface InterfaceDibujo {
 	 * @param ancho
 	 * @param alto
 	 */
-	public void clean(int x, int y, int ancho, int alto);
+	void clean(int x, int y, int ancho, int alto);
 
 	/**
 	 * Dibuja una recta.
@@ -43,7 +43,7 @@ public interface InterfaceDibujo {
 	 * @param x2
 	 * @param y2
 	 */
-	public void dibujarRecta(Color c, int x1, int y1, int x2, int y2);
+	void dibujarRecta(Color c, int x1, int y1, int x2, int y2);
 
 	/**
 	 * Dibuja un texto
@@ -53,7 +53,7 @@ public interface InterfaceDibujo {
 	 * @param y
 	 * @param texto
 	 */
-	public void dibujarTexto(Color c, int x, int y, String texto);
+	void dibujarTexto(Color c, int x, int y, String texto);
 
 	/**
 	 * Dibuja un rectángulo de un color.
@@ -64,7 +64,7 @@ public interface InterfaceDibujo {
 	 * @param ancho
 	 * @param alto
 	 */
-	public void dibujarRectangulo(Color c, int x1, int y1, int ancho, int alto);
+	void dibujarRectangulo(Color c, int x1, int y1, int ancho, int alto);
 
 	// para el cambio de tamaño, notifica a el encargado de dibujar
 	// public void SetRepresentacionRDD (RepresentacionRDD rdd);

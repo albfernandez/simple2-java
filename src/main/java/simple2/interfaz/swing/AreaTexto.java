@@ -177,14 +177,17 @@ public class AreaTexto extends javax.swing.JTextArea {
 	public int getLineCount() {
 		int lineas = super.getLineCount();
 		int caracteres = this.getDocument().getLength();
-		if (caracteres < 1)
+		if (caracteres < 1) {
 			return 1;
+		}
 
 		// hack para evitar un bug al contar las líneas en la versión 1.3
+		// TODO Esto es necesario? donde estará la 1.3 ahora ?
 		try {
 			String version = System.getProperty("java.version");
-			if ((version.startsWith("1.3")) && ("\n".compareTo(getText(caracteres - 1, 1)) == 0))
+			if (version.startsWith("1.3") && "\n".compareTo(getText(caracteres - 1, 1)) == 0){
 				lineas++;
+			}
 		} catch (javax.swing.text.BadLocationException e) {
 			return 1;
 		}
@@ -205,7 +208,7 @@ public class AreaTexto extends javax.swing.JTextArea {
 		try {
 			inicio = this.getLineStartOffset(linea);
 			fin = this.getLineEndOffset(linea);
-			return (this.getText(inicio, (fin - inicio)));
+			return this.getText(inicio, fin - inicio);
 		} catch (javax.swing.text.BadLocationException e) {
 			return "";
 		}
@@ -279,7 +282,7 @@ public class AreaTexto extends javax.swing.JTextArea {
 			return ("Línea " + (linea + 1) + " de " + lineastotales + "  -  Columna " + columna + "  carácter "
 					+ caracter + "(" + 100 * caracter / (total_caracteres + 1) + "%) " + textoIndicaModificacion);
 		} catch (javax.swing.text.BadLocationException e) {
-			return (" ");
+			return " ";
 		}
 	}
 

@@ -90,7 +90,8 @@ public class PanelMemoria extends JPanel implements MemoryChangeListener {
 		while (c != TAMANO) {
 			this.model.setValueAt(String.valueOf(this.memoria.elementAt(c)), c, 0);
 			if (c < instruccionesTotales) {
-				String cadena = (Integer.toHexString(ensamblado[c])).toUpperCase();
+				// TODO StringFormat
+				String cadena = Integer.toHexString(ensamblado[c]).toUpperCase();
 				if (ensamblado[c] < 0) {
 					cadena = cadena.substring(cadena.length() - 4);
 				}
@@ -132,7 +133,8 @@ public class PanelMemoria extends JPanel implements MemoryChangeListener {
 	 */
 	public void memoryChanged(int dir, short newValue) {
 		this.model.setValueAt(String.valueOf(this.memoria.elementAt(dir)), dir, 0);
-		String cadena = (Integer.toHexString(newValue)).toUpperCase();
+		// TODO Stringformat
+		String cadena = Integer.toHexString(newValue).toUpperCase();
 		if (newValue < 0)
 			cadena = cadena.substring(cadena.length() - 4);
 		if (cadena.length() == 1)
@@ -166,7 +168,8 @@ public class PanelMemoria extends JPanel implements MemoryChangeListener {
 		while (c != TAMANO) {
 			this.model.setValueAt(String.valueOf(this.memoria.elementAt(c)), c, 0);
 			if (c < instruccionesTotales) {
-				String cadena = (Integer.toHexString(ensamblado[c])).toUpperCase();
+				// TOD StringFormat
+				String cadena = Integer.toHexString(ensamblado[c]).toUpperCase();
 				if (ensamblado[c] < 0) {
 					cadena = cadena.substring(cadena.length() - 4);
 				}

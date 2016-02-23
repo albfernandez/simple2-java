@@ -62,11 +62,11 @@ public class PanelDibujo extends JPanel implements InterfaceDibujo, ComponentLis
 	private int _alto;
 
 	private int coordX(int x) {
-		return (this._ancho * x / 720);
+		return this._ancho * x / 720;
 	}
 
 	private int coordY(int y) {
-		return (this._alto * y / 470);
+		return this._alto * y / 470;
 	}
 
 	/**
@@ -239,7 +239,7 @@ public class PanelDibujo extends JPanel implements InterfaceDibujo, ComponentLis
 	 */
 	@Override
 	public void componentResized(ComponentEvent e) {
-		if ((getSize().width <= 0) || (getSize().height <= 0)) {
+		if (getSize().width <= 0 || getSize().height <= 0) {
 			return;
 		}
 		this.buffer = createImage(getSize().width, getSize().height);

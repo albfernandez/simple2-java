@@ -109,13 +109,16 @@ public abstract class InstruccionGeneral {
 	 * @return true - si validación cierta. false - si validación falsa.
 	 */
 	protected boolean esValido(char letra) {
-		if ((letra <= 'Z') && (letra >= 'A'))
+		if (letra <= 'Z' && letra >= 'A') {
 			return true;
-		if ((letra <= '9') && (letra >= '0'))
+		}
+		if (letra <= '9' && letra >= '0'){
 			return true;
+		}
 		for (int i = 0; i < caracteresValidos.length; i++) {
-			if (letra == caracteresValidos[i])
+			if (letra == caracteresValidos[i]){
 				return true;
+			}
 		}
 		return false;
 	}
@@ -137,13 +140,15 @@ public abstract class InstruccionGeneral {
 		boolean continuar = true;
 		Vector<String> v = new Vector<String>();
 		while (continuar) {
-			while ((i < instruccion.length()) && !esSeparador(instruccion.charAt(i)))
+			while (i < instruccion.length() && !esSeparador(instruccion.charAt(i))){
 				i++;
+			}
 
 			if (i == instruccion.length()) {
 				continuar = false;
-				if (i > a)
+				if (i > a) {
 					v.add(instruccion.substring(a, i));
+				}
 			} else if (i > a) {
 				v.add(instruccion.substring(a, i));
 				a = i + 1;

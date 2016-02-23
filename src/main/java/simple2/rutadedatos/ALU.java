@@ -54,7 +54,7 @@ public class ALU {
 	 * @return Devuelve si hay arrastre o no
 	 */
 	private static boolean arrastre(short operandoA, short operandoB) {
-		return (((operandoA + operandoB) > 0x7FFF) || ((operandoA + operandoB) < -32767));
+		return (((operandoA + operandoB) > 0x7FFF) || ((operandoA + operandoB) < -32767)); // NOPMD
 	}
 
 	/**

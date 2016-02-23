@@ -200,7 +200,8 @@ public class PanelNuevo extends JPanel {
 		this.resultado.setBackground(Color.lightGray);
 		StringBuilder codificado = new StringBuilder();
 		for (int i = 0; i < instruccionesTotales; i++) {
-			String cadena = (Integer.toHexString(ensamblado[i])).toUpperCase();
+			// TODO Stringformat
+			String cadena = Integer.toHexString(ensamblado[i]).toUpperCase();
 			if (ensamblado[i] < 0) {
 				cadena = cadena.substring(cadena.length() - 4);
 			}

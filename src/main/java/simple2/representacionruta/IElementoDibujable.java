@@ -16,17 +16,17 @@ public interface IElementoDibujable {
 	/**
 	 * Dibuja el objeto en su estado inactivo.
 	 */
-	public void apagar();
+	void apagar();
 
 	/**
 	 * Dibuja el objeto en su estado activo.
 	 */
-	public void encender();
+	void encender();
 
 	/**
 	 * Redibuja el objeto en su estado actual.
 	 */
-	public void repintar();
+	void repintar();
 
 	/**
 	 * El texto que se desea escribir
@@ -34,12 +34,12 @@ public interface IElementoDibujable {
 	 * @param texto
 	 *            La cadena que se le pasa para escribir
 	 */
-	public void setText(String texto);
+	void setText(String texto);
 
 	/**
 	 * Devuelve el texto escrito
 	 * 
 	 * @return El texto escrito
 	 */
-	public String getText();
+	String getText();
 }

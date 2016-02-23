@@ -53,7 +53,7 @@ public class BancoRegistros {
 	 * @return Devuelve el nombre del registro si la posicion existe
 	 */
 	public static String getNombreRegistro(int reg) {
-		if ((reg >= 0) && (reg < nombres.length)){
+		if (reg >= 0 && reg < nombres.length){
 			return nombres[reg];
 		}
 		return "";
@@ -94,10 +94,10 @@ public class BancoRegistros {
 	 *            El valor que se quiere escribir
 	 */
 	public void setValorRegistro(int registro, short valor) {
-		if ((registro > 15) || (registro < 0)) {
+		if (registro > 15 || registro < 0) {
 			return;
 		}
-		if ((registro < 4) || (registro > 9)) {
+		if (registro < 4 || registro > 9) {
 			this.registros[registro] = valor;
 			notificarListeners(registro, valor);
 		}
@@ -112,7 +112,7 @@ public class BancoRegistros {
 	 * @return El dato almacenado en el registro(si existe la posicion)
 	 */
 	public short getValorRegistro(int registro) {
-		if ((registro < 0) || (registro > 15)) {
+		if (registro < 0 || registro > 15) {
 			return 0;
 		}
 		return this.registros[registro];

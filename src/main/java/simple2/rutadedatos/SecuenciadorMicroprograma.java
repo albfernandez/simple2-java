@@ -74,12 +74,12 @@ public class SecuenciadorMicroprograma {
 	 */
 	private void actualizarPeticionesMemoria(MicroInstruccion inst) {
 
-		if ((inst.getMAR() == 1) || (inst.getMBR() == 1)) {
+		if (inst.getMAR() == 1 || inst.getMBR() == 1) {
 			this._petLecturaMemoria = 0;
 			this._petEscrituraMemoria = 0;
 		}
 
-		if ((inst.getWR() == 1) && (inst.getRD() == 1)) {
+		if (inst.getWR() == 1 && inst.getRD() == 1) {
 			this._petEscrituraMemoria = 0;
 			this._petLecturaMemoria = 0;
 		} else if (inst.getWR() == 1) {
@@ -229,11 +229,11 @@ public class SecuenciadorMicroprograma {
 		case 0:
 			return false;
 		case 1:
-			return (this.alu.getN() == 1);
+			return this.alu.getN() == 1;
 		case 2:
-			return (this.alu.getZ() == 1);
+			return this.alu.getZ() == 1;
 		case 3:
-			return (this.alu.getC() == 1);
+			return this.alu.getC() == 1;
 		case 4:
 			return true;
 		default:

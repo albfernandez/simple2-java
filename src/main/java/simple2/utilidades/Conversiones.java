@@ -62,7 +62,7 @@ public final class Conversiones {
 		int aux;
 		aux = valor;
 		String ret = "";
-		for (int i = 0; (i < digitos) && (i < 32); i++) {
+		for (int i = 0; i < digitos && i < 32; i++) {
 			ret = (aux & 1) + ret;
 			aux = aux >> 1;
 		}

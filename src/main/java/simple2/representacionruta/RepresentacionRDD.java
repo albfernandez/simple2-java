@@ -359,10 +359,10 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 		this.mbr.apagar();
 		this.sh.apagar();
 		this.busC.apagar();
-		for (int i=0; i < 16; i++)
+		for (int i=0; i < 16; i++) {
 			this.regs[i].apagar();
-		if ((rdc == 0) ||((rdc > 1019) && (rdc < 1023)))
-		{
+		}
+		if (rdc == 0 || ((rdc > 1019) && (rdc < 1023)))	{
 			this.etiqueta_rmc_NombInst.setText("NOMBRE=Cargando Instrucción...");
 		}
 		actualizarTodo();
@@ -479,18 +479,15 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 			this.busC.encender(mic.getC());
 			this.regs[mic.getC()].encender();
 		}
-		if (mic.getMBR() == 1)
-		{
+		if (mic.getMBR() == 1) {
 			//Activamos el cable que va de SH a MBR
 			this.cable_sh_mbr.encender();
 			this.mbr.encender();
 		}
-		if ( (!(mic.getENC()==1)) && (!(mic.getMBR()==1) ) )
-		{
+		if (mic.getENC()!=1 && mic.getMBR()!=1)	{
 			this.sh.apagar();
 		}
-		else
-		{
+		else {
 			this.cable_sh.encender();
 		}
 		actualizarTodo();
@@ -557,7 +554,7 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 	 */
 	public void registerChanged (int registro, short newValue)
 	{
-		String cadena=(Integer.toHexString(newValue)).toUpperCase();
+		String cadena=Integer.toHexString(newValue).toUpperCase();
 		// TODO String.format
 		if (newValue < 0) {
 			cadena=cadena.substring(cadena.length()-4);

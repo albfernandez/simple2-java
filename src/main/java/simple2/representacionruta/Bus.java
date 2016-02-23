@@ -44,7 +44,7 @@ public class Bus {
 	 *            Linea que hay que encender del bus
 	 */
 	public void encender(int linea) {
-		if ((linea >= this.cables.length) || (linea < 0)) {
+		if (linea >= this.cables.length || linea < 0) {
 			return;
 		}
 		apagar();

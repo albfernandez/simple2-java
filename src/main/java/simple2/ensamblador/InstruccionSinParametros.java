@@ -39,9 +39,10 @@ public class InstruccionSinParametros extends InstruccionGeneral {
 
 	@Override
 	public String validar(String instruccion, int linea) throws ErrorCodigoException {
-		if ((instruccion.compareTo("PUSH") == 0) || (instruccion.compareTo("POP") == 0)
-				|| (instruccion.compareTo("RETN") == 0) || (instruccion.compareTo("HALT") == 0))
+		if ("PUSH".equals(instruccion) || "POP".equals(instruccion) 
+				|| "RETN".equals(instruccion) || "HALT".equals(instruccion)) {
 			return "";
+		}
 		throw new ErrorCodigoException("Esta instrucción no lleva parámetros");
 	}
 
@@ -59,11 +60,11 @@ public class InstruccionSinParametros extends InstruccionGeneral {
 	@Override
 	public short codificar(String instruccion, int linea) {
 		int codigo;
-		if (instruccion.equals("PUSH")) {
+		if ("PUSH".equals(instruccion)) {
 			codigo = 16384; // PUSH
-		} else if (instruccion.equals("POP")) {
+		} else if ("POP".equals(instruccion)) {
 			codigo = 18432; // POP
-		} else if (instruccion.equals("RETN")) {
+		} else if ("RETN".equals(instruccion)) {
 			codigo = 30720; // RETN
 		} else {
 			codigo = 63488; // HALT
