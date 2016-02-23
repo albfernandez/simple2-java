@@ -28,11 +28,12 @@ public final class Conversiones {
 	 * @return La cadena con la representación en hexadecimal de valor.
 	 */
 	public static String toHexString(int valor) {
-		String ret = Integer.toHexString(valor);
-		while (ret.length() < 8) {
-			ret = "0" + ret;
+		StringBuilder ret = new StringBuilder();
+		ret.append(Integer.toHexString(valor).toUpperCase());
+		while (ret.length() < 4) {
+			ret.insert(0, "0");
 		}
-		return ret.toUpperCase();
+		return ret.toString();
 	}
 		
 	/**

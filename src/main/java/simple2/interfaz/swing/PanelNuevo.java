@@ -23,6 +23,8 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.DefaultStyledDocument;
 
+import simple2.utilidades.Conversiones;
+
 /**
  * @author Montserrat Sotomayor Gonzalez
  *
@@ -200,20 +202,7 @@ public class PanelNuevo extends JPanel {
 		this.resultado.setBackground(Color.lightGray);
 		StringBuilder codificado = new StringBuilder();
 		for (int i = 0; i < instruccionesTotales; i++) {
-			// TODO Stringformat
-			String cadena = Integer.toHexString(ensamblado[i]).toUpperCase();
-			if (ensamblado[i] < 0) {
-				cadena = cadena.substring(cadena.length() - 4);
-			}
-			if (cadena.length() == 1) {
-				cadena = "000" + cadena;
-			}
-			if (cadena.length() == 2) {
-				cadena = "00" + cadena;
-			}
-			if (cadena.length() == 3) {
-				cadena = "0" + cadena;
-			}
+			String cadena = Conversiones.toHexString(ensamblado[i]);
 			codificado.append("(").append(codigo_limpio.elementAt(i)).append(")").append(cadena).append("\n");
 		}
 		this.resultado.setText(codificado.toString());

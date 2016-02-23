@@ -17,6 +17,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 
 import simple2.rutadedatos.MemoryChangeListener;
+import simple2.utilidades.Conversiones;
 
 /**
  * @author Montserrat Sotomayor Gonzalez
@@ -68,7 +69,7 @@ public class PanelMemoria extends JPanel implements MemoryChangeListener {
 
 		this.a1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		for (int i = 0; i < 2048; i++) {
-			this.memoria.addElement(toHexString(i));
+			this.memoria.addElement(Conversiones.toHexString(i));
 		}
 	}
 
@@ -90,21 +91,8 @@ public class PanelMemoria extends JPanel implements MemoryChangeListener {
 		while (c != TAMANO) {
 			this.model.setValueAt(String.valueOf(this.memoria.elementAt(c)), c, 0);
 			if (c < instruccionesTotales) {
-				// TODO StringFormat
-				String cadena = Integer.toHexString(ensamblado[c]).toUpperCase();
-				if (ensamblado[c] < 0) {
-					cadena = cadena.substring(cadena.length() - 4);
-				}
-				if (cadena.length() == 1) {
-					cadena = "000" + cadena;
-				}
-				if (cadena.length() == 2) {
-					cadena = "00" + cadena;
-				}
-				if (cadena.length() == 3) {
-					cadena = "0" + cadena;
-				}
-				this.model.setValueAt(String.valueOf(cadena), c, 1);
+
+				this.model.setValueAt(Conversiones.toHexString(ensamblado[c]), c, 1);
 				this.model.setValueAt(toBinString(ensamblado[c]), c, 2);
 				this.model.setValueAt(String.valueOf(codigo_limpio.elementAt(c)), c, 3);
 			} else {
@@ -133,17 +121,8 @@ public class PanelMemoria extends JPanel implements MemoryChangeListener {
 	 */
 	public void memoryChanged(int dir, short newValue) {
 		this.model.setValueAt(String.valueOf(this.memoria.elementAt(dir)), dir, 0);
-		// TODO Stringformat
-		String cadena = Integer.toHexString(newValue).toUpperCase();
-		if (newValue < 0)
-			cadena = cadena.substring(cadena.length() - 4);
-		if (cadena.length() == 1)
-			cadena = "000" + cadena;
-		if (cadena.length() == 2)
-			cadena = "00" + cadena;
-		if (cadena.length() == 3)
-			cadena = "0" + cadena;
-		this.model.setValueAt(String.valueOf(cadena), dir, 1);
+
+		this.model.setValueAt(Conversiones.toHexString(newValue), dir, 1);
 		this.model.setValueAt(toBinString(newValue), dir, 2);
 
 		int alto_fila = this.tabla.getRowHeight();
@@ -168,21 +147,7 @@ public class PanelMemoria extends JPanel implements MemoryChangeListener {
 		while (c != TAMANO) {
 			this.model.setValueAt(String.valueOf(this.memoria.elementAt(c)), c, 0);
 			if (c < instruccionesTotales) {
-				// TOD StringFormat
-				String cadena = Integer.toHexString(ensamblado[c]).toUpperCase();
-				if (ensamblado[c] < 0) {
-					cadena = cadena.substring(cadena.length() - 4);
-				}
-				if (cadena.length() == 1) {
-					cadena = "000" + cadena;
-				}
-				if (cadena.length() == 2) {
-					cadena = "00" + cadena;
-				}
-				if (cadena.length() == 3) {
-					cadena = "0" + cadena;
-				}
-				this.model.setValueAt(String.valueOf(cadena), c, 1);
+				this.model.setValueAt(Conversiones.toHexString(ensamblado[c]), c, 1);
 				this.model.setValueAt(toBinString(ensamblado[c]), c, 2);
 			} else {
 				this.model.setValueAt("0000", c, 1);
@@ -192,20 +157,7 @@ public class PanelMemoria extends JPanel implements MemoryChangeListener {
 		}
 	}
 
-	/**
-	 * Pasa un numero entero a Hexadecimal
-	 * 
-	 * @param valor
-	 *            Numero que queremos pasar a hexadecimal
-	 * @return El resultado en hexadecimal
-	 */
-	public static String toHexString(int valor) {
-		String ret = Integer.toHexString(valor);
-		while (ret.length() < 4) {
-			ret = "0" + ret;
-		}
-		return ret.toUpperCase();
-	}
+
 
 	/**
 	 * Pasa un numero entero a Binario

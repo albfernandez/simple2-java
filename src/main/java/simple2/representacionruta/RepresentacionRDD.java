@@ -554,23 +554,7 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 	 */
 	public void registerChanged (int registro, short newValue)
 	{
-		String cadena=Integer.toHexString(newValue).toUpperCase();
-		// TODO String.format
-		if (newValue < 0) {
-			cadena=cadena.substring(cadena.length()-4);
-		}
-		if(cadena.length()==0) {
-			cadena="0000";
-		}
-		if(cadena.length()==1) {
-			cadena="000"+cadena;
-		}
-		if(cadena.length()==2){
-			cadena="00"+cadena;
-		}
-		if(cadena.length()==3){
-			cadena="0"+cadena;
-		}
+		String cadena= Conversiones.toHexString(registro);
 		this.regs[registro].setText (BancoRegistros.getNombreRegistro(registro) + " " + cadena);
 		if(registro==3){
 			this.etiqueta_rmc_NombInst.setText ("NOMBRE=" + Desensamblador.desensamblar(newValue));	
@@ -583,11 +567,9 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 	 * contenido de todos los registros.
 	 * @param newValues Los valores almacenados en los registros.
 	 */
-	public void registerChanged (short[] newValues)
-	{
-		for (int i=0; i < newValues.length; i++)
-		{
-			registerChanged (i, newValues[i]);
+	public void registerChanged(short[] newValues) {
+		for (int i = 0; i < newValues.length; i++) {
+			registerChanged(i, newValues[i]);
 		}
 	}
 	
