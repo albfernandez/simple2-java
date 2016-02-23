@@ -181,17 +181,6 @@ public class AreaTexto extends javax.swing.JTextArea {
 			return 1;
 		}
 
-		// hack para evitar un bug al contar las líneas en la versión 1.3
-		// TODO Esto es necesario? donde estará la 1.3 ahora ?
-		try {
-			String version = System.getProperty("java.version");
-			if (version.startsWith("1.3") && "\n".compareTo(getText(caracteres - 1, 1)) == 0){
-				lineas++;
-			}
-		} catch (javax.swing.text.BadLocationException e) {
-			return 1;
-		}
-
 		return lineas;
 	}
 
