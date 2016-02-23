@@ -201,17 +201,18 @@ public class Ejecutar extends InstruccionGeneral {
 
 		int instruccionesTotales = vectorInstrucciones.size();
 		short[] out = new short[instruccionesTotales];
-		int i;
 
-		for (i = 0; i < instruccionesTotales; i++) {
+		for (int i = 0; i < instruccionesTotales; i++) {
 			inst = vectorInstrucciones.get(i);
 
 			// coge el mnemonico de la instruccion (hasta el primer espacio o la
 			// intruccion entera)
-			if (inst.indexOf(' ') != -1)
+			if (inst.indexOf(' ') != -1) {
 				in = inst.substring(0, inst.indexOf(' '));
-			else
+			}
+			else {
 				in = inst;
+			}
 
 			// extrae de la tabla de instrucciones la instancia correspondiente
 			// al mnemonico
@@ -239,19 +240,19 @@ public class Ejecutar extends InstruccionGeneral {
 
 		aux = instruc.indexOf(";");
 
-		if (aux > -1)
+		if (aux > -1) {
 			instruc = instruc.substring(0, aux);
+		}
 
 		instruc = instruc.trim();
 
 		boolean separador = false;
 		StringBuffer buffer = new StringBuffer();
-		int i = 0;
 
 		// Limpiamos un poco los separadores. Un grupo de ellos pasa a
 		// ser ' '.
 
-		for (i = 0; i < instruc.length(); i++) {
+		for (int i = 0; i < instruc.length(); i++) {
 			if (esSeparador(instruc.charAt(i))) {
 				if (!separador) {
 					separador = true;
@@ -295,23 +296,27 @@ public class Ejecutar extends InstruccionGeneral {
 			instruc = quitarComentariosYEspacios(instruc);
 
 			// Quita las lineas en blanco
-			if (instruc.equals(""))
+			if ("".equals(instruc)) {
 				continue;
+			}
 
 			// coge la primera parte de la instruccion. (hasta el primer espacio
 			// o paréntesis).
-			if (instruc.indexOf(' ') != -1)
+			if (instruc.indexOf(' ') != -1) {
 				in = instruc.substring(0, instruc.indexOf(' '));
-			else
+			}
+			else {
 				in = instruc;
+			}
 
 			n = this.instrucciones.get(in);
 			String salida_ = "";
 			if (n != null) {
 				salida_ = n.validar(instruc, l_fichero);
 				vectorInstrucciones.add(instruc);
-				if (!salida_.equals(""))
+				if (!"".equals(salida_)) {
 					errores.append(salida_);
+				}
 			} else {
 				errores.append("Linea: ").append(l_fichero).append(". No existe la instruccion\n");
 			}
@@ -320,8 +325,9 @@ public class Ejecutar extends InstruccionGeneral {
 		if (errores.length() != 0) {
 			throw new ErrorCodigoException(errores.toString());
 		}
-		if (instruc.compareTo("HALT") != 0)
+		if (!"HALT".equals(instruc)) {
 			vectorInstrucciones.add("HALT");
+		}
 		return vectorInstrucciones;
 
 	}
