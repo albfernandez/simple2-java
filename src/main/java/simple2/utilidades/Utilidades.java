@@ -40,16 +40,16 @@ public final class Utilidades {
 	public static void centrarVentana(Window ventana) {
 		Dimension tamPantalla = Toolkit.getDefaultToolkit().getScreenSize();
 
-		Dimension tamVentana = ventana.getSize();
+		Dimension TamVentana = ventana.getSize();
 
-		if (tamVentana.height > tamPantalla.height) {
-			tamVentana.height = tamPantalla.height;
+		if (TamVentana.height > tamPantalla.height) {
+			TamVentana.height = tamPantalla.height;
 		}
-		if (tamVentana.width > tamPantalla.width) {
-			tamVentana.width = tamPantalla.width;
+		if (TamVentana.width > tamPantalla.width) {
+			TamVentana.width = tamPantalla.width;
 		}
-		ventana.setSize(tamVentana);
-		ventana.setLocation((tamPantalla.width - tamVentana.width) / 2, (tamPantalla.height - tamVentana.height) / 2);
+		ventana.setSize(TamVentana);
+		ventana.setLocation((tamPantalla.width - TamVentana.width) / 2, (tamPantalla.height - TamVentana.height) / 2);
 	}
 
 }
