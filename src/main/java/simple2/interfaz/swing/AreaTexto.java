@@ -83,11 +83,11 @@ public class AreaTexto extends javax.swing.JTextArea {
 	/**
 	 * Deshace la última acción realizada.
 	 */
-	public void deshacer() { //NOPMD
+	public void deshacer() { 
 		try {
 			this.undo.undo();
 
-		} catch (CannotUndoException ex) {
+		} catch (CannotUndoException ex) { //NOPMD
 			// Simplemente no hacemos nada.
 		}
 	}

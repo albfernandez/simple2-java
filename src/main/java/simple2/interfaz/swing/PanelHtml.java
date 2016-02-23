@@ -61,7 +61,7 @@ public class PanelHtml extends JScrollPane {
 			if (reader != null) {
 				try {
 					reader.close();
-				} catch (IOException ioe) {
+				} catch (IOException ioe) { //NOPMD
 					//
 				}
 			}

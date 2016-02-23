@@ -48,7 +48,7 @@ public class Ejecutar extends InstruccionGeneral {
 		v = separarEnVector(datos);
 		try {
 			codigo_limpio = primeraPasada(v);
-		} catch (ErrorCodigoException ex) {
+		} catch (ErrorCodigoException ex) { //NOPMD
 			//
 		}
 		return codigo_limpio;

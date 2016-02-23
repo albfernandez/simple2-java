@@ -362,7 +362,7 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 		for (int i=0; i < 16; i++) {
 			this.regs[i].apagar();
 		}
-		if (rdc == 0 || (rdc > 1019 && rdc < 1023))	{
+		if (rdc == 0 || (rdc > 1019 && rdc < 1023))	{ // NOPMD
 			this.etiqueta_rmc_NombInst.setText("NOMBRE=Cargando Instrucción...");
 		}
 		actualizarTodo();
