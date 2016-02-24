@@ -77,6 +77,7 @@ public final class Desensamblador {
 			break;
 		default:
 			cadena = "no valido " + opcode + " " + parametro;
+			break;
 
 		}
 		return cadena;
