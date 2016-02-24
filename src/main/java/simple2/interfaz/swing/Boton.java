@@ -123,10 +123,12 @@ public class Boton extends JToggleButton {
 		 */
 		@Override
 		public void mouseEntered(MouseEvent me) {
-			if (isEnabled())
+			if (isEnabled()){
 				setBackground(Boton.this.colorSobre);
-			else
+			}
+			else{
 				setBackground(Boton.this.colorNormal);
+			}
 		}
 
 		/**

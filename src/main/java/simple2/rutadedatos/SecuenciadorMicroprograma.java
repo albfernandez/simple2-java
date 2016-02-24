@@ -175,8 +175,9 @@ public class SecuenciadorMicroprograma {
 			this.alu.operar(this.rmc.getALU(), this.rmc.getSH(), this.regA, this.regB);
 		}
 
-		if (this.rmc.getMAR() == 1)
+		if (this.rmc.getMAR() == 1) {
 			this._mar = this.regB;
+		}
 
 		this.repRdd.dibujarCiclo3(this.rmc, this.alu.getResultado(), this._mar, this._mbr, this.alu.getC(),
 				this.alu.getN(), this.alu.getZ());

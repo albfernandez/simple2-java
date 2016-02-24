@@ -83,25 +83,29 @@ public class Cable extends ElementoDibujable {
 		int y1 = 0;
 		int y2 = 0;
 
-		if (linea[0] == linea[2]) // es una línea vertical
-		{
+		if (linea[0] == linea[2]) {
+			// es una línea vertical
 			x1 = linea[0] - 5;
 			x2 = linea[0] + 5;
 
-			if (linea[1] < linea[3]) // La linea va hacia abajo
+			if (linea[1] < linea[3]) {
+				// La linea va hacia abajo
 				y1 = linea[3] - 5;
-			else
+			} else {
 				y1 = linea[3] + 5;
+			}
 			y2 = y1;
-		} else if (linea[1] == linea[3]) // es una linea horizontal
-		{
+		} else if (linea[1] == linea[3]) {
+			// es una linea horizontal
 			y1 = linea[1] - 5;
 			y2 = linea[1] + 5;
 
-			if (linea[0] < linea[2]) // La linea va hacia la derecha
+			if (linea[0] < linea[2]) {
+				// La linea va hacia la derecha
 				x1 = linea[2] - 5;
-			else
+			} else {
 				x1 = linea[2] + 5;
+			}
 			x2 = x1;
 		} else {
 			return;

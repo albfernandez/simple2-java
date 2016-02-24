@@ -45,10 +45,12 @@ public abstract class ElementoDibujable implements IElementoDibujable {
 	 * Redibuja el objeto en su estado actual.
 	 */
 	public void repintar() {
-		if (this.activo)
+		if (this.activo) {
 			pintarActivo();
-		else
+		}
+		else {
 			pintarInactivo();
+		}
 
 	}
 

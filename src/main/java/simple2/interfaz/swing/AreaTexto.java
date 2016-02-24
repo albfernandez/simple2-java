@@ -265,8 +265,9 @@ public class AreaTexto extends javax.swing.JTextArea {
 			int lineastotales = getLineCount();
 			int caracter = dot + 1;
 			int total_caracteres = this.getDocument().getLength();
-			if (isModificado())
+			if (isModificado()) {
 				textoIndicaModificacion = " *";
+			}
 
 			return ("Línea " + (linea + 1) + " de " + lineastotales + "  -  Columna " + columna + "  carácter "
 					+ caracter + "(" + 100 * caracter / (total_caracteres + 1) + "%) " + textoIndicaModificacion);
@@ -371,8 +372,9 @@ public class AreaTexto extends javax.swing.JTextArea {
 		 */
 		private void mostrarPopup(MouseEvent e) {
 			// Si no tenemos popup volvemos
-			if (AreaTexto.this.popup == null)
+			if (AreaTexto.this.popup == null) {
 				return;
+			}
 			// Si tenemos popup, y el es el botón derecho o central, mostramos
 			// el popup.
 			if (e.isPopupTrigger()) {

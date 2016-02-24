@@ -61,9 +61,11 @@ public abstract class InstruccionGeneral {
 	 * @return true - si validación cierta. false - si validación falsa.
 	 **/
 	protected static boolean esSeparador(char letra) {
-		for (int i = 0; i < caracteresSeparador.length; i++)
-			if (caracteresSeparador[i] == letra)
+		for (int i = 0; i < caracteresSeparador.length; i++) {
+			if (caracteresSeparador[i] == letra) {
 				return true;
+			}
+		}
 		return false;
 
 	}
@@ -95,8 +97,9 @@ public abstract class InstruccionGeneral {
 	protected boolean contieneCaracteresNoValidos(String instruccion) {
 
 		for (int z = 0; z < instruccion.length(); z++) {
-			if (!esValido(instruccion.charAt(z)))
+			if (!esValido(instruccion.charAt(z))) {
 				return true;
+			}
 		}
 		return false;
 	}
@@ -152,8 +155,9 @@ public abstract class InstruccionGeneral {
 			} else if (i > a) {
 				v.add(instruccion.substring(a, i));
 				a = i + 1;
-			} else
+			} else {
 				a++;
+			}
 			i++;
 		}
 		String[] d = new String[v.size()];
@@ -175,8 +179,9 @@ public abstract class InstruccionGeneral {
 	 */
 	public static String intToBinaryString(int valor) {
 		String cadena = Integer.toBinaryString(valor);
-		for (int z = cadena.length(); z < 11; z++)
+		for (int z = cadena.length(); z < 11; z++){
 			cadena = "0" + cadena;
+		}
 		return cadena;
 	}
 

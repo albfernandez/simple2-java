@@ -61,8 +61,9 @@ public class CampoNumerico extends JTextField {
 
 	public int getValue() {
 		int retVal = 0;
-		if (getText().compareTo("") != 0)
+		if (!"".equals(getText())) {
 			retVal = Integer.parseInt(getText());
+		}
 		return retVal;
 	}
 
@@ -109,16 +110,20 @@ public class CampoNumerico extends JTextField {
 			char[] result = new char[source.length];
 			int j = 0;
 			for (int i = 0; i < result.length; i++) {
-				if (Character.isDigit(source[i]))
+				if (Character.isDigit(source[i])) {
 					result[j++] = source[i];
-				else
+				}
+				else {
 					Toolkit.getDefaultToolkit().beep();
+				}
 			}
 
-			if ((getLength() + source.length) <= CampoNumerico.this.cols)
+			if ((getLength() + source.length) <= CampoNumerico.this.cols){
 				super.insertString(offs, new String(result, 0, j), a);
-			else
+			}
+			else {
 				Toolkit.getDefaultToolkit().beep();
+			}
 		}
 	}
 }

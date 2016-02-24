@@ -244,8 +244,9 @@ public class Simple2 {
 		this.botonEsquema.setSelected(false);
 		this.botonMemoria.setSelected(false);
 		this.botonParar.setSelected(false);
-		if (this.parado)
+		if (this.parado) {
 			this.botonParar.setSelected(this.parado);
+		}
 		boolean c = this.panelCentral.isHiloActivo();
 		if (c) {
 			this.botonEjecutar.setSelected(true);

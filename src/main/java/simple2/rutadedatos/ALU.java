@@ -76,8 +76,9 @@ public class ALU {
 		switch (operacion) {
 		case 0:
 			retval = (short) (operandoA + operandoB);
-			if (arrastre(operandoA, operandoB))
+			if (arrastre(operandoA, operandoB)) {
 				this.c = 1;
+			}
 			break;
 		case 1:
 			retval = (short) (operandoA & operandoB);

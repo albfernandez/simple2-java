@@ -533,8 +533,9 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 		this.mux.apagar();	
 		this.alu.apagar();			
 			
-		for (int i=0; i < 16; i++)
-			this.regs[i].apagar();			
+		for (int i=0; i < 16; i++) {
+			this.regs[i].apagar();	
+		}
 		actualizarTodo();
 
 	}
