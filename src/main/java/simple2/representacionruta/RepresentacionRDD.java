@@ -27,6 +27,9 @@ import simple2.utilidades.Desensamblador;
 	
 public class RepresentacionRDD implements RegisterChangeListener,IRepresentacionRDD
 {
+	private static final String CICLO = "Ciclo: ";
+
+
 	/**
 	 * superficie del dibujo
 	 */
@@ -353,7 +356,7 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 	{
 		this.ciclo++;
 		pintarMicro (mic);
-		this.etiqueta.setText ("Ciclo: " + this.ciclo + " Subciclo 1");
+		this.etiqueta.setText (CICLO + this.ciclo + " Subciclo 1");
 		this.cable_sh.apagar();
 		this.cable_sh_mbr.apagar();
 		this.mbr.apagar();
@@ -377,7 +380,7 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 	public void dibujarCiclo2 (MicroInstruccion mic, short regA, short regB)
 	{
 		pintarMicro (mic);
-		this.etiqueta.setText ("Ciclo: " + this.ciclo + " Subciclo 2");
+		this.etiqueta.setText (CICLO + this.ciclo + " Subciclo 2");
 		this.busA.encender (mic.getA());
 		this.busB.encender (mic.getB());
 			
@@ -408,7 +411,7 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 		short vMBR, int valorC, int valorN, int valorZ )
 	{
 		pintarMicro (mic);
-		this.etiqueta.setText("Ciclo: "+ this.ciclo + " Subciclo 3");
+		this.etiqueta.setText(CICLO+ this.ciclo + " Subciclo 3");
 		this.busA.apagar();
 		this.busB.apagar();			
 		this.regs[mic.getA()].apagar();
@@ -458,7 +461,7 @@ public class RepresentacionRDD implements RegisterChangeListener,IRepresentacion
 	public void dibujarCiclo4(MicroInstruccion mic, short vMBR)
 	{
 		pintarMicro (mic);
-		this.etiqueta.setText ("Ciclo: " + this.ciclo + " Subciclo 4");
+		this.etiqueta.setText (CICLO + this.ciclo + " Subciclo 4");
 		this.bufferA.apagar();
 		this.bufferB.apagar();
 		this.mar.apagar();

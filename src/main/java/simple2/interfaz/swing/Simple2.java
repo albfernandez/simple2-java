@@ -31,6 +31,16 @@ import simple2.ensamblador.Ejecutar;
  */
 public class Simple2 {
 
+	private static final String RUTA = "RUTA";
+
+	private static final String PARAR = "PARAR";
+
+	private static final String MEMORIA = "MEMORIA";
+
+	private static final String CODIGO = "CODIGO";
+
+	private static final String EJECUTAR = "EJECUTAR";
+
 	/**
 	 * Panel central que contendrá todos los paneles que se utilizarán en el
 	 * programa
@@ -106,15 +116,15 @@ public class Simple2 {
 		this.panelCentral = new PanelCentral();
 		this.panelSuperior = new JPanel();
 
-		this.botonCodigo = new Boton("CODIGO");
+		this.botonCodigo = new Boton(CODIGO);
 		this.botonCodigo.setIcon(new ImageIcon(getClass().getResource("/images/codigo.gif")));
-		this.botonEjecutar = new Boton("EJECUTAR");
+		this.botonEjecutar = new Boton(EJECUTAR);
 		this.botonEjecutar.setIcon(new ImageIcon(getClass().getResource("/images/ejecutar.gif")));
-		this.botonMemoria = new Boton("MEMORIA");
+		this.botonMemoria = new Boton(MEMORIA);
 		this.botonMemoria.setIcon(new ImageIcon(getClass().getResource("/images/memoria.gif")));
-		this.botonParar = new Boton("PARAR");
+		this.botonParar = new Boton(PARAR);
 		this.botonParar.setIcon(new ImageIcon(getClass().getResource("/images/dot_rojo.gif")));
-		this.botonEsquema = new Boton("RUTA");
+		this.botonEsquema = new Boton(RUTA);
 		this.botonEsquema.setIcon(new ImageIcon(getClass().getResource("/images/ruta.gif")));
 
 		this.rootPaneContainer.getRootPane().getContentPane().setLayout(new BorderLayout());
@@ -148,7 +158,7 @@ public class Simple2 {
 					return;
 				}
 				if (Simple2.this.botonEjecutar.isSelected() == false) {
-					Simple2.this.botonEjecutar.setText("EJECUTAR");
+					Simple2.this.botonEjecutar.setText(EJECUTAR);
 					Simple2.this.panelCentral.fin();
 					Simple2.this.botonEjecutar.setSelected(false);
 					return;
@@ -195,7 +205,7 @@ public class Simple2 {
 			public void actionPerformed(ActionEvent e) {
 				seleccionar();
 				Simple2.this.botonMemoria.setSelected(true);
-				Simple2.this.panelCentral.verPanel("MEMORIA");
+				Simple2.this.panelCentral.verPanel(MEMORIA);
 			}
 		});
 
@@ -212,7 +222,7 @@ public class Simple2 {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String aux = Simple2.this.botonEjecutar.getText();
-				if (aux.compareTo("EJECUTAR") != 0) {
+				if (aux.compareTo(EJECUTAR) != 0) {
 					Simple2.this.parado = !Simple2.this.parado;
 					seleccionar();
 					if (Simple2.this.parado) {
@@ -220,7 +230,7 @@ public class Simple2 {
 						Simple2.this.botonParar.setIcon(new ImageIcon(getClass().getResource("/images/dot_verde.gif")));
 						Simple2.this.botonEjecutar.setText("PARADO");
 					} else {
-						Simple2.this.botonParar.setText("PARAR");
+						Simple2.this.botonParar.setText(PARAR);
 						Simple2.this.botonParar.setIcon(new ImageIcon(getClass().getResource("/images/dot_rojo.gif")));
 						Simple2.this.botonEjecutar.setSelected(true);
 						Simple2.this.botonEjecutar.setText("FIN");
@@ -277,8 +287,8 @@ public class Simple2 {
 					Simple2.this.parado = false;
 				}
 				Simple2.this.panelCentral.fin();
-				Simple2.this.botonEjecutar.setText("EJECUTAR");
-				Simple2.this.botonParar.setText("PARAR");
+				Simple2.this.botonEjecutar.setText(EJECUTAR);
+				Simple2.this.botonParar.setText(PARAR);
 				Simple2.this.botonParar.setIcon(new ImageIcon(getClass().getResource("/images/dot_rojo.gif")));
 				seleccionar();
 				Simple2.this.botonParar.setSelected(false);
@@ -363,7 +373,7 @@ public class Simple2 {
 
 			}
 			Simple2.this.botonEjecutar.setSelected(false);
-			Simple2.this.botonEjecutar.setText("EJECUTAR");
+			Simple2.this.botonEjecutar.setText(EJECUTAR);
 			Simple2.this.botonEjecutar.setIcon(new ImageIcon(getClass().getResource("/images/ejecutar.gif")));
 
 		}

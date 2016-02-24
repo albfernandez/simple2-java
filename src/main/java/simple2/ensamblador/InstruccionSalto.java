@@ -18,6 +18,7 @@ import java.util.Hashtable;
  */
 public class InstruccionSalto extends InstruccionGeneral {
 
+	private static final String LINEA = "Linea: ";
 	/**
 	 * Contiene las instrucciones que maneja la clase con su código de
 	 * operación.
@@ -78,20 +79,20 @@ public class InstruccionSalto extends InstruccionGeneral {
 	@Override
 	public String validar(String instruccion, int linea) throws ErrorCodigoException {
 		if (contieneCaracteresNoValidos(instruccion)) {
-			return "Linea: " + linea + ". " + CONTIENE_CARACTERES_INVALIDOS;
+			return LINEA + linea + ". " + CONTIENE_CARACTERES_INVALIDOS;
 		}
 		String[] cadena = separarOperandos(instruccion);
 		Object c = this.tabla.get(cadena[0]);
 		if (c == null) {
-			return "Linea: " + linea + ". No se reconoce la instruccion " + cadena[0] + "\n";
+			return LINEA + linea + ". No se reconoce la instruccion " + cadena[0] + "\n";
 		}
 		if (cadena.length != 2) {
-			return "Linea: " + linea + ". Número de parámetros incorrectos.\n";
+			return LINEA + linea + ". Número de parámetros incorrectos.\n";
 		}
 		try {
 			Integer.parseInt(cadena[1]);
 		} catch (Exception e) {
-			return "Linea: " + linea + ". El segundo parametro tiene que ser un número\n";
+			return LINEA + linea + ". El segundo parametro tiene que ser un número\n";
 		}
 
 		return "";
