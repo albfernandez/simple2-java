@@ -7,6 +7,7 @@ El proyecto fin de carrera presentado en octubre de 2003.
 ## Construyendo el proyecto
 
 Clonar de github y construir con maven
+
     git clone https://github.com/albfernandez/simple2-java.git
     cd simple2-java
 	mvn clean package
