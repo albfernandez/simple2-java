@@ -12,6 +12,6 @@ Clonar de github y construir con maven
     cd simple2-java
     mvn clean package
 
-el resultado está en target/simple2-2.0.0.jar, para ejecutarlo
+el resultado está en target/simple2-2.0.1.jar, para ejecutarlo
 
-    java -jar target/simple2-2.0.0.jar
+    java -jar target/simple2-2.0.1.jar
