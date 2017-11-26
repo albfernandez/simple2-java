@@ -6,7 +6,6 @@ package simple2.interfaz.swing;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.util.Vector;
 
 import javax.swing.JPopupMenu;
@@ -44,10 +43,6 @@ public class AreaTexto extends javax.swing.JTextArea {
 	 */
 	protected UndoManager undo = new UndoManager();
 
-	/**
-	 * Nombre del archivo con el que se está trabajando.
-	 */
-	public File nombreFichero = null;
 
 	/**
 	 * Menu emergente. Aparece cuando se pulsa el botón derecho del ratón sobre
